@@ -68,7 +68,6 @@
 
     <property name="output.dir" value="${basedir}/out"/>
     <property name="temp.dir" value="${output.dir}/tmp"/>
-    <property name="res.gen.dir" value="${temp.dir}/res.gen"/>
     <property name="mainoutput.dir"
               value="${output.dir}/production/${ant.project.name}"/>
     <property name="testoutput.dir"
@@ -225,6 +224,7 @@
         <mkdir dir="${artifact.temp.output}"/>
         <jar destfile="${temp.jar.path.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
             <zipfileset dir="${mainoutput.dir}"/>
+            <zipfileset dir="${basedir}/src/res"/>
         </jar>
         <copy file="${temp.jar.path.jar}" tofile="${artifact.temp.output}/${jar.name}"/>
     </target>

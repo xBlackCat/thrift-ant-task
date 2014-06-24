@@ -1,5 +1,7 @@
 package org.xblackcat.ant.thrift;
 
+import org.apache.tools.ant.ProjectComponent;
+
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -8,7 +10,7 @@ import java.util.Iterator;
  *
  * @author xBlackCat
  */
-public abstract class AGenerator {
+public abstract class AGenerator extends ProjectComponent implements IGenerator {
     private String outputDir;
     private String generator;
 
@@ -20,10 +22,12 @@ public abstract class AGenerator {
         this.outputDir = outputDir;
     }
 
+    @Override
     public String getOutputDir() {
         return outputDir;
     }
 
+    @Override
     public String getOptionsString() {
         StringBuilder line = new StringBuilder();
         line.append(generator);
@@ -46,6 +50,7 @@ public abstract class AGenerator {
         return null;
     }
 
+    @Override
     public boolean generateSeparated() {
         return outputDir != null;
     }

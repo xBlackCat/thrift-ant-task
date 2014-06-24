@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class ThriftCompilerTask extends Task {
     private Project project;
-    private final List<AGenerator> generators = new ArrayList<>();
+    private List<IGenerator> generators = new ArrayList<>();
     private DirSet includes;
     private FileSet source;
     private String outputDirBase;
@@ -41,12 +41,21 @@ public class ThriftCompilerTask extends Task {
         this.project = project;
     }
 
-    public void setIncludes(DirSet includes) {
-        this.includes = includes;
+    public DirSet createIncludes() {
+        if (includes == null) {
+            includes = new DirSet();
+            includes.setProject(project);
+        }
+
+        return includes;
     }
 
-    public void setSource(FileSet source) {
-        this.source = source;
+    public FileSet createSource() {
+        if (source == null) {
+            source = new FileSet();
+            source.setProject(project);
+        }
+        return source;
     }
 
     public void setOutputDirBase(String outputDirBase) {
@@ -89,8 +98,96 @@ public class ThriftCompilerTask extends Task {
         this.executable = executable;
     }
 
-    public void add(AGenerator gen) {
+    public void addConfigured(IGenerator gen) {
         generators.add(gen);
+    }
+
+    public void addConfiguredAS3(AS3 gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredCGlib(CGlib gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredCocoa(Cocoa gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredCpp(Cpp gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredCSharp(CSharp gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredD(D gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredDelphi(Delphi gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredErlang(Erlang gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredGo(Go gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredGraphviz(Graphviz gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredHaskell(Haskell gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredHTML(HTML gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredJava(Java gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredJavaME(JavaME gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredJavascript(Javascript gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredOCaml(OCaml gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredPerl(Perl gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredPHP(PHP gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredPython(Python gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredRuby(Ruby gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredSmalltalk(Smalltalk gen) {
+        addConfigured(gen);
+    }
+
+    public void addConfiguredXSD(XSD gen) {
+        addConfigured(gen);
     }
 
     @Override
@@ -103,10 +200,10 @@ public class ThriftCompilerTask extends Task {
             throw new BuildException("No files to process");
         }
 
-        List<AGenerator> separateGen = new ArrayList<>();
-        List<AGenerator> commonGen = new ArrayList<>();
+        List<IGenerator> separateGen = new ArrayList<>();
+        List<IGenerator> commonGen = new ArrayList<>();
 
-        for (AGenerator g : generators) {
+        for (IGenerator g : generators) {
             if (g.generateSeparated()) {
                 separateGen.add(g);
             } else {
@@ -130,15 +227,6 @@ public class ThriftCompilerTask extends Task {
             compiler = "thrift";
         }
         cmd.setExecutable(compiler);
-
-        runCompiler(cmd, outputDirBase, outputDir, commonGen.toArray(new AGenerator[commonGen.size()]));
-
-        for (AGenerator g : separateGen) {
-            runCompiler(cmd, g.getOutputDir(), null, g);
-        }
-    }
-
-    private void runCompiler(Commandline cmd, String outputDirBase, String outputDir, AGenerator... generators) {
         if (includes != null && includes.size() > 0) {
             for (Resource dir : includes) {
                 cmd.createArgument().setValue("-I" + dir.getName());
@@ -167,25 +255,47 @@ public class ThriftCompilerTask extends Task {
             cmd.createArgument().setValue("--allow-64bit-consts");
         }
 
+        runCompiler(cmd, outputDirBase, outputDir, commonGen.toArray(new IGenerator[commonGen.size()]));
+
+        for (IGenerator g : separateGen) {
+            runCompiler(cmd, null, g.getOutputDir(), g);
+        }
+    }
+
+    private void runCompiler(Commandline base, String outputDirBase, String outputDir, IGenerator... generators) {
+        Commandline compilerCmd = (Commandline) base.clone();
+
         if (outputDir != null) {
-            cmd.createArgument().setValue("-out" + resolveDir(outputDir));
+            compilerCmd.createArgument().setValue("-out" + resolveDir(outputDir));
         } else if (outputDirBase != null) {
-            cmd.createArgument().setValue("-o" + resolveDir(outputDirBase));
+            compilerCmd.createArgument().setValue("-o" + resolveDir(outputDirBase));
         }
 
-        for (AGenerator g : generators) {
-            cmd.createArgument().setValue("--gen");
-            cmd.createArgument().setValue(g.getOptionsString());
+        for (IGenerator g : generators) {
+            compilerCmd.createArgument().setValue("--gen");
+            compilerCmd.createArgument().setValue(g.getOptionsString());
         }
 
-        Execute exe = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN));
-        exe.setAntRun(project);
-        exe.setWorkingDirectory(project.getBaseDir());
-        exe.setCommandline(cmd.getCommandline());
         try {
-            exe.execute();
+
+            for (Resource src : source) {
+                Commandline cmd = (Commandline) compilerCmd.clone();
+
+                File file = project.resolveFile(project.replaceProperties(src.getName()));
+                if (!file.isFile()) {
+                    throw new BuildException("Source is not a file: " + file.getAbsolutePath());
+                }
+
+                cmd.createArgument().setFile(file);
+
+                Execute exe = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN));
+                exe.setAntRun(project);
+                exe.setWorkingDirectory(project.getBaseDir());
+                exe.setCommandline(cmd.getCommandline());
+                exe.execute();
+            }
         } catch (IOException e) {
-            throw new BuildException("Error running " + cmd.getExecutable() + " compiler", e, getLocation());
+            throw new BuildException("Error running " + compilerCmd.getExecutable() + " compiler", e, getLocation());
         }
     }
 
