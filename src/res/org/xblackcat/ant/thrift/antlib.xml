@@ -16,28 +16,28 @@
    limitations under the License.
 -->
 <antlib>
-    <typedef name="as3" classname="org.xblackcat.ant.thrift.AS3"/>
-    <typedef name="cglib" classname="org.xblackcat.ant.thrift.CGlib"/>
-    <typedef name="cocoa" classname="org.xblackcat.ant.thrift.Cocoa"/>
-    <typedef name="cpp" classname="org.xblackcat.ant.thrift.Cpp"/>
-    <typedef name="csharp" classname="org.xblackcat.ant.thrift.CSharp"/>
-    <typedef name="d" classname="org.xblackcat.ant.thrift.D"/>
-    <typedef name="delphi" classname="org.xblackcat.ant.thrift.Delphi"/>
-    <typedef name="erl" classname="org.xblackcat.ant.thrift.Erlang"/>
-    <typedef name="go" classname="org.xblackcat.ant.thrift.Go"/>
-    <typedef name="graphviz" classname="org.xblackcat.ant.thrift.Graphviz"/>
-    <typedef name="haskell" classname="org.xblackcat.ant.thrift.Haskell"/>
-    <typedef name="html" classname="org.xblackcat.ant.thrift.HTML"/>
-    <typedef name="java" classname="org.xblackcat.ant.thrift.Java"/>
-    <typedef name="javame" classname="org.xblackcat.ant.thrift.JavaME"/>
-    <typedef name="javascript" classname="org.xblackcat.ant.thrift.Javascript"/>
-    <typedef name="ocaml" classname="org.xblackcat.ant.thrift.OCaml"/>
-    <typedef name="perl" classname="org.xblackcat.ant.thrift.Perl"/>
-    <typedef name="php" classname="org.xblackcat.ant.thrift.PHP"/>
-    <typedef name="python" classname="org.xblackcat.ant.thrift.Python"/>
-    <typedef name="ruby" classname="org.xblackcat.ant.thrift.Ruby"/>
-    <typedef name="smalltalk" classname="org.xblackcat.ant.thrift.Smalltalk"/>
-    <typedef name="xsd" classname="org.xblackcat.ant.thrift.XSD"/>
+    <componentdef name="as3" classname="org.xblackcat.ant.thrift.AS3"/>
+    <componentdef name="cglib" classname="org.xblackcat.ant.thrift.CGlib"/>
+    <componentdef name="cocoa" classname="org.xblackcat.ant.thrift.Cocoa"/>
+    <componentdef name="cpp" classname="org.xblackcat.ant.thrift.Cpp"/>
+    <componentdef name="csharp" classname="org.xblackcat.ant.thrift.CSharp"/>
+    <componentdef name="d" classname="org.xblackcat.ant.thrift.D"/>
+    <componentdef name="delphi" classname="org.xblackcat.ant.thrift.Delphi"/>
+    <componentdef name="erl" classname="org.xblackcat.ant.thrift.Erlang"/>
+    <componentdef name="go" classname="org.xblackcat.ant.thrift.Go"/>
+    <componentdef name="graphviz" classname="org.xblackcat.ant.thrift.Graphviz"/>
+    <componentdef name="haskell" classname="org.xblackcat.ant.thrift.Haskell"/>
+    <componentdef name="html" classname="org.xblackcat.ant.thrift.HTML"/>
+    <componentdef name="java" classname="org.xblackcat.ant.thrift.Java"/>
+    <componentdef name="javame" classname="org.xblackcat.ant.thrift.JavaME"/>
+    <componentdef name="javascript" classname="org.xblackcat.ant.thrift.Javascript"/>
+    <componentdef name="ocaml" classname="org.xblackcat.ant.thrift.OCaml"/>
+    <componentdef name="perl" classname="org.xblackcat.ant.thrift.Perl"/>
+    <componentdef name="php" classname="org.xblackcat.ant.thrift.PHP"/>
+    <componentdef name="python" classname="org.xblackcat.ant.thrift.Python"/>
+    <componentdef name="ruby" classname="org.xblackcat.ant.thrift.Ruby"/>
+    <componentdef name="smalltalk" classname="org.xblackcat.ant.thrift.Smalltalk"/>
+    <componentdef name="xsd" classname="org.xblackcat.ant.thrift.XSD"/>
 
     <taskdef name="thriftc" classname="org.xblackcat.ant.thrift.ThriftCompilerTask"/>
 </antlib>
