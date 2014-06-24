@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<antlib>
+    <typedef name="as3" classname="org.xblackcat.ant.thrift.AS3"/>
+    <typedef name="c_glib" classname="org.xblackcat.ant.thrift.CGlib"/>
+    <typedef name="cocoa" classname="org.xblackcat.ant.thrift.Cocoa"/>
+    <typedef name="cpp" classname="org.xblackcat.ant.thrift.Cpp"/>
+    <typedef name="csharp" classname="org.xblackcat.ant.thrift.csharp"/>
+    <typedef name="d" classname="org.xblackcat.ant.thrift.D"/>
+    <typedef name="delphi" classname="org.xblackcat.ant.thrift.Delphi"/>
+    <typedef name="erl" classname="org.xblackcat.ant.thrift.Erlang"/>
+    <typedef name="go" classname="org.xblackcat.ant.thrift.Go"/>
+    <typedef name="gv" classname="org.xblackcat.ant.thrift.Graphviz"/>
+    <typedef name="hs" classname="org.xblackcat.ant.thrift.Haskell"/>
+    <typedef name="html" classname="org.xblackcat.ant.thrift.HTML"/>
+    <typedef name="java" classname="org.xblackcat.ant.thrift.Java"/>
+    <typedef name="javame" classname="org.xblackcat.ant.thrift.JavaME"/>
+    <typedef name="js" classname="org.xblackcat.ant.thrift.Javascript"/>
+    <typedef name="ocaml" classname="org.xblackcat.ant.thrift.OCaml"/>
+    <typedef name="perl" classname="org.xblackcat.ant.thrift.Perl"/>
+    <typedef name="php" classname="org.xblackcat.ant.thrift.PHP"/>
+    <typedef name="py" classname="org.xblackcat.ant.thrift.Python"/>
+    <typedef name="rb" classname="org.xblackcat.ant.thrift.Ruby"/>
+    <typedef name="st" classname="org.xblackcat.ant.thrift.Smalltalk"/>
+    <typedef name="xsd" classname="org.xblackcat.ant.thrift.XSD"/>
+</antlib>
