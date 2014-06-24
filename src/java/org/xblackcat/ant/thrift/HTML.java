@@ -8,7 +8,7 @@ import java.util.Collections;
 *
 * @author xBlackCat
 */ //HTML
-public class HTML extends Generator {
+public class HTML extends AGenerator {
     /**
      * Self-contained mode, includes all CSS in the HTML files. Generates no style.css file, but HTML files will be larger.
      */

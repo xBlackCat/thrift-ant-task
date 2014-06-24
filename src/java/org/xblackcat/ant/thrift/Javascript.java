@@ -8,7 +8,7 @@ import java.util.Collection;
 *
 * @author xBlackCat
 */ //Javascript
-public class Javascript extends Generator {
+public class Javascript extends AGenerator {
     /**
      * Generate jQuery compatible code.
      */

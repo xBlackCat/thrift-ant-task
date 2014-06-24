@@ -5,7 +5,7 @@ package org.xblackcat.ant.thrift;
 *
 * @author xBlackCat
 */ //Haskell
-public class Haskell extends Generator {
+public class Haskell extends AGenerator {
     public Haskell() {
         super("hs");
     }

@@ -8,7 +8,7 @@ import java.util.Collections;
 *
 * @author xBlackCat
 */ //Graphviz
-public class Graphviz extends Generator {
+public class Graphviz extends AGenerator {
     /**
      * Whether to draw arrows from functions to exception.
      */

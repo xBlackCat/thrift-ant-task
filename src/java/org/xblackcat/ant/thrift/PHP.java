@@ -8,7 +8,7 @@ import java.util.Collection;
 *
 * @author xBlackCat
 */ //PHP
-public class PHP extends Generator {
+public class PHP extends AGenerator {
     /**
      * Generate PHP inlined files
      */

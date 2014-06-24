@@ -5,7 +5,7 @@ package org.xblackcat.ant.thrift;
 *
 * @author xBlackCat
 */ //D
-public class D extends Generator {
+public class D extends AGenerator {
     public D() {
         super("d");
     }

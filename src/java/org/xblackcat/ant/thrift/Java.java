@@ -8,7 +8,7 @@ import java.util.Collection;
 *
 * @author xBlackCat
 */ //Java
-public class Java extends Generator {
+public class Java extends AGenerator {
     /**
      * Members will be private, and setter methods will return void.
      */

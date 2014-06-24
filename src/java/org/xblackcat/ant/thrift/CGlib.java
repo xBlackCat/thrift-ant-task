@@ -5,7 +5,7 @@ package org.xblackcat.ant.thrift;
 *
 * @author xBlackCat
 */ //C, using GLib
-public class CGlib extends Generator {
+public class CGlib extends AGenerator {
     public CGlib() {
         super("c_glib");
     }

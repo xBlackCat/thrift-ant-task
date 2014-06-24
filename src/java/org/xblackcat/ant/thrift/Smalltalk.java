@@ -5,7 +5,7 @@ package org.xblackcat.ant.thrift;
 *
 * @author xBlackCat
 */ //Smalltalk
-public class Smalltalk extends Generator {
+public class Smalltalk extends AGenerator {
 
     public Smalltalk() {
         super("st");

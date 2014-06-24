@@ -5,7 +5,7 @@ package org.xblackcat.ant.thrift;
 *
 * @author xBlackCat
 */ //Erlang
-public class Erlang extends Generator {
+public class Erlang extends AGenerator {
     public Erlang() {
         super("erl");
     }

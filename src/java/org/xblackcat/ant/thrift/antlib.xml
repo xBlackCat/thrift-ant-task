@@ -16,6 +16,7 @@
    limitations under the License.
 -->
 <antlib>
+    <taskdef name="thriftc" classname="org.xblackcat.ant.thrift.ThriftCompilerTask"/>
     <typedef name="as3" classname="org.xblackcat.ant.thrift.AS3"/>
     <typedef name="c_glib" classname="org.xblackcat.ant.thrift.CGlib"/>
     <typedef name="cocoa" classname="org.xblackcat.ant.thrift.Cocoa"/>

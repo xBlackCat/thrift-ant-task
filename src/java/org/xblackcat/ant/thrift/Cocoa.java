@@ -8,7 +8,7 @@ import java.util.Collection;
 *
 * @author xBlackCat
 */ //Cocoa
-public class Cocoa extends Generator {
+public class Cocoa extends AGenerator {
     /**
      * Log every time an unexpected field ID or type is encountered.
      */

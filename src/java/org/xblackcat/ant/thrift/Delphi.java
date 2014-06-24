@@ -8,7 +8,7 @@ import java.util.Collection;
 *
 * @author xBlackCat
 */ //delphi
-public class Delphi extends Generator {
+public class Delphi extends AGenerator {
     /**
      * Use AnsiString for binary datatype (default is TBytes).
      */

@@ -8,7 +8,7 @@ import java.util.Collection;
 *
 * @author xBlackCat
 */ //C++
-public class Cpp extends Generator {
+public class Cpp extends AGenerator {
     /**
      * Generate "Continuation OBject"-style classes.
      */

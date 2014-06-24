@@ -1,8 +1,6 @@
 package org.xblackcat.ant.thrift;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -10,11 +8,11 @@ import java.util.Iterator;
  *
  * @author xBlackCat
  */
-public abstract class Generator {
+public abstract class AGenerator {
     private String outputDir;
     private String generator;
 
-    protected Generator(String generator) {
+    protected AGenerator(String generator) {
         this.generator = generator;
     }
 
@@ -27,7 +25,7 @@ public abstract class Generator {
     }
 
     public String getOptionsString() {
-        StringBuilder line = new StringBuilder("-");
+        StringBuilder line = new StringBuilder();
         line.append(generator);
 
         Collection<String> options = getOptions();
@@ -48,4 +46,7 @@ public abstract class Generator {
         return null;
     }
 
+    public boolean generateSeparated() {
+        return outputDir != null;
+    }
 }

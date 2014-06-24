@@ -8,7 +8,7 @@ import java.util.Collection;
 *
 * @author xBlackCat
 */ //Go
-public class Go extends Generator {
+public class Go extends AGenerator {
     /**
      * Package prefix for generated files.
      */

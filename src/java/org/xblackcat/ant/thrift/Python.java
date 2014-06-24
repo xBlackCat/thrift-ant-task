@@ -8,7 +8,7 @@ import java.util.Collection;
 *
 * @author xBlackCat
 */ //Python
-public class Python extends Generator {
+public class Python extends AGenerator {
     /**
      * Generate new-style classes.
      */

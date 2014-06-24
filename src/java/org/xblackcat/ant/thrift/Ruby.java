@@ -8,7 +8,7 @@ import java.util.Collections;
 *
 * @author xBlackCat
 */ //Ruby
-public class Ruby extends Generator {
+public class Ruby extends AGenerator {
     /**
      * Add a "require 'rubygems'" line to the top of each generated file.
      */

@@ -8,7 +8,7 @@ import java.util.Collection;
 *
 * @author xBlackCat
 */ //C#
-public class CSharp extends Generator {
+public class CSharp extends AGenerator {
     /**
      * Adds Async support using Task.Run.
      */

@@ -5,7 +5,7 @@ package org.xblackcat.ant.thrift;
 *
 * @author xBlackCat
 */ //OCaml
-public class OCaml extends Generator {
+public class OCaml extends AGenerator {
     public OCaml() {
         super("ocalm");
     }

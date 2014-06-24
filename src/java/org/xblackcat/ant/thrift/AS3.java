@@ -8,7 +8,7 @@ import java.util.Collections;
 *
 * @author xBlackCat
 */ //AS3
-public class AS3 extends Generator {
+public class AS3 extends AGenerator {
     /**
      * Add [bindable] metadata to all the struct classes.
      */

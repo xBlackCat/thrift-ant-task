@@ -5,7 +5,7 @@ package org.xblackcat.ant.thrift;
 *
 * @author xBlackCat
 */ //Perl
-public class Perl extends Generator {
+public class Perl extends AGenerator {
     public Perl() {
         super("perl");
     }

@@ -5,7 +5,7 @@ package org.xblackcat.ant.thrift;
 *
 * @author xBlackCat
 */ //XSD
-public class XSD extends Generator {
+public class XSD extends AGenerator {
     public XSD() {
         super("xsd");
     }
