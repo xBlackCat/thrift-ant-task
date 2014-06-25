@@ -62,7 +62,7 @@
 
     <dirname property="basedir" file="${ant.file}"/>
 
-    <available file="${basedir}/test" property="run.tests"/>
+    <available file="${basedir}/test/java" property="run.tests"/>
 
     <property name="compiler.args" value="${compiler.args}"/>
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="test-file" default="all">
+
+
+    <property file="build.properties"/>
+
+    <!-- Compiler options -->
+
+    <taskdef resource="org/xblackcat/ant/thrift/antlib.xml"/>
+
+    <target name="all" >
+        <thriftc executable="D\:/FrameWork/thrift-0.9.1/thrift-0.9.1.exe">
+            <java beans="yes" outputdir="${basedir}/test"/>
+            <source dir="${basedir}/test">
+                <include name="**/*.thrift"/>
+            </source>
+        </thriftc>
+    </target>
+</project>
