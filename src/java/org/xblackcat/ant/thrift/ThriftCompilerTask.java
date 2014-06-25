@@ -279,7 +279,7 @@ public class ThriftCompilerTask extends Task {
     }
 
     private void runCompiler(List<String> base, List<String> sourceFiles, String outDirBase, String outDir, IGenerator... generators) {
-        log("Prepare compiler ", Project.MSG_VERBOSE);
+        log("Prepare compiler", Project.MSG_VERBOSE);
 
         List<String> compilerCmdLine = new ArrayList<>(base);
 
@@ -293,9 +293,13 @@ public class ThriftCompilerTask extends Task {
             throw new NullPointerException("Output folder is not set");
         }
 
+        StringBuilder log = new StringBuilder();
+
         for (IGenerator g : generators) {
             compilerCmdLine.add("--gen");
             compilerCmdLine.add(g.getOptionsString());
+            log.append(", ");
+            log.append(g.getName());
         }
 
         compilerCmdLine.add("file");
@@ -305,7 +309,7 @@ public class ThriftCompilerTask extends Task {
             for (String src : sourceFiles) {
                 commandline[commandline.length - 1] = src;
 
-                log("Process file " + src, Project.MSG_VERBOSE);
+                log("Translate file " + src + " to " + log.substring(2), Project.MSG_INFO);
 
                 log("Execute command line: " + Arrays.toString(commandline), Project.MSG_VERBOSE);
 
@@ -321,7 +325,7 @@ public class ThriftCompilerTask extends Task {
         } catch (IOException e) {
             throw new BuildException("Error running " + commandline[0] + " compiler", e, getLocation());
         } catch (Throwable e) {
-            throw new BuildException("!!!", e);
+            throw new BuildException("Unexpected exception", e);
         }
     }
 

@@ -1,6 +1,5 @@
 package org.xblackcat.ant.thrift;
 
-import org.apache.tools.ant.Project;
 import org.apache.tools.ant.ProjectComponent;
 
 import java.util.Collection;
@@ -24,14 +23,17 @@ public abstract class AGenerator extends ProjectComponent implements IGenerator 
     }
 
     @Override
+    public String getName() {
+        return generator;
+    }
+
+    @Override
     public String getOutputDir() {
         return outputDir;
     }
 
     @Override
     public String getOptionsString() {
-        getProject().log("Build options line for " + generator, Project.MSG_VERBOSE);
-
         StringBuilder line = new StringBuilder();
         line.append(generator);
 

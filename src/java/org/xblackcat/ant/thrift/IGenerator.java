@@ -6,6 +6,8 @@ package org.xblackcat.ant.thrift;
  * @author xBlackCat
  */
 public interface IGenerator {
+    String getName();
+
     String getOutputDir();
 
     String getOptionsString();
