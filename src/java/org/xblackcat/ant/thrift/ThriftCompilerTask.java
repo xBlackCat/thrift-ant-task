@@ -321,7 +321,12 @@ public class ThriftCompilerTask extends Task {
                 int code = exe.execute();
 
                 log("Process returns code " + code, Project.MSG_VERBOSE);
+                if (code != 0) {
+                    throw new BuildException("Thrift compiler failed to process file " + src);
+                }
             }
+        } catch (BuildException e) {
+            throw e;
         } catch (IOException e) {
             throw new BuildException("Error running " + commandline[0] + " compiler", e, getLocation());
         } catch (Throwable e) {
