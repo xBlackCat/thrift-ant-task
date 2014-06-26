@@ -42,6 +42,34 @@ public class CSharp extends AGenerator {
         super("csharp");
     }
 
+    public void setAsync(boolean async) {
+        this.async = async;
+    }
+
+    public void setAsyncctp(boolean asyncctp) {
+        this.asyncctp = asyncctp;
+    }
+
+    public void setWcf(boolean wcf) {
+        this.wcf = wcf;
+    }
+
+    public void setSerial(boolean serial) {
+        this.serial = serial;
+    }
+
+    public void setNullable(boolean nullable) {
+        this.nullable = nullable;
+    }
+
+    public void setHashcode(boolean hashcode) {
+        this.hashcode = hashcode;
+    }
+
+    public void setUnion(boolean union) {
+        this.union = union;
+    }
+
     @Override
     protected Collection<String> getOptions() {
         ArrayList<String> line = new ArrayList<>();

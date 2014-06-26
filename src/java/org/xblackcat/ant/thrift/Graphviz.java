@@ -18,6 +18,10 @@ public class Graphviz extends AGenerator {
         super("gv");
     }
 
+    public void setExceptions(boolean exceptions) {
+        this.exceptions = exceptions;
+    }
+
     @Override
     protected Collection<String> getOptions() {
         if (exceptions) {
