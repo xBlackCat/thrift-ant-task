@@ -17,6 +17,10 @@ public class Javascript extends AGenerator {
      * Generate node.js compatible code.
      */
     private boolean node;
+    /**
+     * Generate TypeScript definition files
+     */
+    private boolean ts;
 
     public Javascript() {
         super("js");
@@ -30,6 +34,10 @@ public class Javascript extends AGenerator {
         this.node = node;
     }
 
+    public void setTs(boolean ts) {
+        this.ts = ts;
+    }
+
     @Override
     protected Collection<String> getOptions() {
         ArrayList<String> line = new ArrayList<>();
@@ -39,6 +47,9 @@ public class Javascript extends AGenerator {
         }
         if (node) {
             line.add("node");
+        }
+        if (ts) {
+            line.add("ts");
         }
 
         return line;

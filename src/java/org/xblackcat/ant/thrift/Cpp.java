@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
-* 24.06.2014 12:09
-*
-* @author xBlackCat
-*/ //C++
+ * 24.06.2014 12:09
+ *
+ * @author xBlackCat
+ */ //C++
 public class Cpp extends AGenerator {
     /**
      * Generate "Continuation OBject"-style classes.
@@ -33,9 +33,17 @@ public class Cpp extends AGenerator {
      * Use full include paths in generated files.
      */
     private boolean includePrefix;
+    /**
+     * Omits generation of default operators ==, != and <
+     */
+    private boolean noDefaultOperators;
 
     public Cpp() {
         super("cpp");
+    }
+
+    public void setNoDefaultOperators(boolean noDefaultOperators) {
+        this.noDefaultOperators = noDefaultOperators;
     }
 
     public void setCobStyle(boolean cobStyle) {
@@ -82,6 +90,9 @@ public class Cpp extends AGenerator {
         }
         if (includePrefix) {
             line.add("include_prefix");
+        }
+        if (noDefaultOperators) {
+            line.add("no_default_operators");
         }
         return line;
     }

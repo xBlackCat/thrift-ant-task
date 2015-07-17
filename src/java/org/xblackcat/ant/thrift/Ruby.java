@@ -1,18 +1,22 @@
 package org.xblackcat.ant.thrift;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
 /**
-* 24.06.2014 12:10
-*
-* @author xBlackCat
-*/ //Ruby
+ * 24.06.2014 12:10
+ *
+ * @author xBlackCat
+ */ //Ruby
 public class Ruby extends AGenerator {
     /**
      * Add a "require 'rubygems'" line to the top of each generated file.
      */
     private boolean rubygems;
+    /**
+     * Generate files in idiomatic namespaced directories.
+     */
+    private boolean namespaced;
 
     public Ruby() {
         super("rb");
@@ -22,12 +26,20 @@ public class Ruby extends AGenerator {
         this.rubygems = rubygems;
     }
 
+    public void setNamespaced(boolean namespaced) {
+        this.namespaced = namespaced;
+    }
+
     @Override
     protected Collection<String> getOptions() {
+        ArrayList<String> line = new ArrayList<>();
         if (rubygems) {
-            return Collections.singleton("rubygems");
+            line.add("rubygems");
+        }
+        if (namespaced) {
+            line.add("namespaced");
         }
 
-        return null;
+        return line;
     }
 }
