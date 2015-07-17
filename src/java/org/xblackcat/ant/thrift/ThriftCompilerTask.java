@@ -158,6 +158,14 @@ public class ThriftCompilerTask extends Task {
         add(gen);
     }
 
+    public void addJSON(JSON gen) {
+        add(gen);
+    }
+
+    public void addLUA(LUA gen) {
+        add(gen);
+    }
+
     public void addOCaml(OCaml gen) {
         add(gen);
     }

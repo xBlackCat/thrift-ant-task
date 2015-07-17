@@ -31,6 +31,8 @@
     <componentdef name="java" classname="org.xblackcat.ant.thrift.Java"/>
     <componentdef name="javame" classname="org.xblackcat.ant.thrift.JavaME"/>
     <componentdef name="javascript" classname="org.xblackcat.ant.thrift.Javascript"/>
+    <componentdef name="json" classname="org.xblackcat.ant.thrift.JSON"/>
+    <componentdef name="lua" classname="org.xblackcat.ant.thrift.LUA"/>
     <componentdef name="ocaml" classname="org.xblackcat.ant.thrift.OCaml"/>
     <componentdef name="perl" classname="org.xblackcat.ant.thrift.Perl"/>
     <componentdef name="php" classname="org.xblackcat.ant.thrift.PHP"/>
